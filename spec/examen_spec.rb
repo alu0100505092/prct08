@@ -6,29 +6,32 @@ module Examen
        describe Examen::EleccionSimple do
            
            before :each do 
-               @q=Examen::EleccionSimple.new({:text => '3+3=', :right => '6' , :distractors => [1,2,3]})
+              
            end
            
-           context "cuando se crea una pregunta " do
+           context "Eleccion Simple" do
               
            
-                it "debe tener tres componentes " do
-                    expect(@q.text)=='3+3='
-                    expect(@q.right)==6
-                    expect(@q.distractors)==[1,2,3]
+                it "Debe existir una pregunta " do
+                    
                 end
                 
-                it "tiene que tener texto y las demas opciones "  do
-                    expect{(Examen::EleccionSimple.new(:text =>'5*8=?'))}.to raise_error(ArgumentError)
+                it "Debe existir un metodo para obtener la pregunta "  do
+                   
+                end
+                
+                it "Deben existir opciones de respuesta " do
                 end
                     
-                     context "cuando se convierte " do
-                        it " posible convertir en HTML" do
-                            expect(@q).to respond_to :to_html
-                        end
-                     end
+                it "Se debe invocar a un metodo para obtener las opciones de respuesta" do
+                end
+                
+                it "Se deben mostrar por la consola la pregunta y las opciones de respuesta" do
+                end
+                
+          
                     
-                    
+                
            end
        end
                
