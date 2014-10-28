@@ -1,31 +1,29 @@
-# Examen
+Practica 6 LPP
 
-TODO: Write a gem description
+Integrantes LPP_T_13
+    Angelica Ravelo
+    Joaquin Escobar
 
-## Installation
 
-Add this line to your application's Gemfile:
+Practica sobre Listas Enlazadas en RUBY( Linked List)
 
-```ruby
-gem 'examen'
-```
+Expectativas
 
-And then execute:
+Examen
+  EleccionSimple
+    -Debe existir una pregunta
+    -Se debe invocar a un m´etodo para obtener la pregunta
+    -Deben existir opciones de respuesta
+    -Se debe invocar a un m´etodo para obtener las opciones de respuesta
+    -Se deben mostrar por la consola formateada la pregunta y las opciones de respuesta
 
-    $ bundle
 
-Or install it yourself as:
-
-    $ gem install examen
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/examen/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+Examen
+  Nodo
+    -Debe existir un Nodo de la lista con sus datos y su siguiente
+    
+  Lista
+    -Se extrae el primer elemento de la lista
+    -Se puede insertar un elemento
+    -Se pueden insertar varios elementos
+    -Debe existir una Lista con su cabeza 
