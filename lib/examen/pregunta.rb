@@ -17,14 +17,7 @@ module Examen
          end
          
          
-         def to_html
-            #  options =@distractors+[@right]
-            #  options = options.shuffle
-             
-            # options=''
-            # options.each do |options|
-            # options += %Q{<input type = "radio" value="#{options}" name=0> #{options}\n}}
-            # html = %Q{{#{@text}}<br/>{#{options}}}
+         def pregunta
     
     
          end
