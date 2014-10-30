@@ -9,52 +9,76 @@ module Examen
              # @preg=Examen::EleccionSimple.new({ text: '¿Pregunta?', right:'Respuesta', distractors:[1,2,3] })
              
              #@p1=Struct::Pregunta.new("¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots", "nil", ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
-            objeto=EleccionSimple.new(0)
+            @objeto=EleccionSimple.new(0)
             
-            Struct.new("Pregunta", :enunciado , :respuesta, :falsas)
+            #Struct.new("Pregunta", :enunciado , :respuesta, :falsas)
             @p1=Struct::Pregunta.new("¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots", "nil", ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
-            objeto.empu(@p1)
-            cosa=objeto.saca(0)
+            @objeto.empu(@p1)
+            cosa=@objeto.saca(0)
+            otracosa=@objeto.preg(0)
             
            end
            
            context "Eleccion Simple" do
               
            
-                it "Debe existir una pregunta " do
-                    expect(@cosa).to eq("¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots")
-                    expect(@objeto.to_a[0].to_a[0])=="nil"
-                    expect(@objeto.to_a[0].to_a[0])==['#<Xyz:0xa000208>',0,'Ninguna de las anteriores']
-                end
+                # it "Debe existir una pregunta " do
+                #     expect(@cosa).to eq("¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots")
+                #     expect(@objeto.to_a[0].to_a[0])=="nil"
+                #     expect(@objeto.to_a[0].to_a[0])==['#<Xyz:0xa000208>',0,'Ninguna de las anteriores']
+                # end
                 
-                it "Debe existir un metodo para obtener la pregunta "  do
-                #   expect(@p1.pregunta).to eq("PREGUNTA : ¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots")
-                end
+                # it "Debe existir un metodo para obtener la pregunta "  do
+                #   expect(@otracosa).to eq("PREGUNTA : ¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots")
+                # end
                 
-                it "Deben existir opciones de respuesta " do
-                    # expect(@p1.to_a[1]) != nil
-                    # expect(@p1.to_a[2]) !=[nil] 
+                # it "Deben existir opciones de respuesta " do
+                #     # expect(@p1.to_a[1]) != nil
+                #     # expect(@p1.to_a[2]) !=[nil] 
                     
-                end
+                # end
                     
-                it "Se debe invocar a un metodo para obtener las opciones de respuesta" do
-                end
+                # it "Se debe invocar a un metodo para obtener las opciones de respuesta" do
+                # end
                 
-                it "Se deben mostrar por la consola la pregunta y las opciones de respuesta" do
-                end
+                # it "Se deben mostrar por la consola la pregunta y las opciones de respuesta" do
+                # end
                 
                 
           it "Prueba de preguntas" do
+              #creo las preguntas
+              @p1=Struct::Pregunta.new("¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots", "nil", ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
+              @p2=Struct::Pregunta.new("¿La siguiente definicion de un hash en ruby es valida?", "verdadero" , "falso")
+              @p3=Struct::Pregunta.new("¿Cual es la siguiente salida del codigo en ruby?", 1, ["bob","HEY","Ninguna"])
+              @p4=Struct::Pregunta.new("¿Cual es el tipo de objeto en el siguiente codigo en ruby?", "una instancia de la clase Class", ["una constante","un objeto","Ninguna"])
+              @p5=Struct::Pregunta.new("¿Es apropiado que una clase tablero herede de una clase juego?","verdadero" , "falso")
               
+              #crear nodos
               
-          end
+              @nodo1=Nodo.new(@p1)
+              @nodo2=Nodo.new(@p2)
+              @nodo3=Nodo.new(@p3)
+              @nodo4=Nodo.new(@p4)
+              @nodo5=Nodo.new(@p5)
+              
+              #se crea la lista
+              
+              @lista=Lista.new(0)
+              @lista.push(@nodo1)
+              @lista.push(@nodo2)
+              @lista.push(@nodo3)
+              @lista.push(@nodo4)
+              @lista.push(@nodo5)
+
+              
+          end#cierro it
           
                     
                 
-           end
+           end#cierro context
            
            
-       end
+       end#cierro describe
        
        
        
@@ -84,9 +108,9 @@ module Examen
                     @lista.push(@n2)
                     @lista.ext
                     expect(@lista.inicio).to eq(@n1)
-    end
+                end
     
-end
+        end
                
               
        

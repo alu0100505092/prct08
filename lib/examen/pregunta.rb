@@ -1,7 +1,7 @@
 require 'pry'
 module Examen
 
-    class EleccionSimple #< Struct.new("Pregunta", :enunciado , :respuesta, :falsas) 
+    class EleccionSimple < Struct.new("Pregunta", :enunciado , :respuesta, :falsas) 
         #use a class to define behavior, together with a Struct that defines the data to which the class should be initialized.
         attr_reader :pregunta
         def initialize(arg)
@@ -14,14 +14,14 @@ module Examen
          end
          
          def saca(arg)
-             retorna = @pregunta.to_a[arg].to_a[arg]
-             return retorna
+             retorna = @pregunta.to_a[arg]
+             retorna
          end
          
          
          
-          def pregunta
-              " PREGUNTA : #{@p1}"
+          def preg arg
+              " PREGUNTA : #{self.saca(arg)}"
           end
     end
     
