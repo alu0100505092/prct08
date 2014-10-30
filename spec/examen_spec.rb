@@ -111,6 +111,69 @@ module Examen
                 end
     
         end
+        
+        
+         describe Examen do
+                before :all do
+                    @examen = Lista.new(0)
+                    @p1=Struct::Pregunta.new("¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots", "nil", ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
+                    @p2=Struct::Pregunta.new("¿La siguiente definicion de un hash en ruby es valida?", "verdadero" , "falso")
+                    @p3=Struct::Pregunta.new("¿Cual es la siguiente salida del codigo en ruby?", 1, ["bob","HEY","Ninguna"])
+                    @p4=Struct::Pregunta.new("¿Cual es el tipo de objeto en el siguiente codigo en ruby?", "una instancia de la clase Class", ["una constante","un objeto","Ninguna"])
+                    @p5=Struct::Pregunta.new("¿Es apropiado que una clase tablero herede de una clase juego?","verdadero" , "falso")
+                    
+                end
+                
+                it 'Se deben insertar una pregunta en el examen.' do
+                    @nodo1=Nodo.new(@p1)
+                    @examen.push(@nodo1)
+                    expect(@examen.inicio).to eq(@nodo1)
+                end
+                
+                it 'Se insertan varios elementos.' do
+                    @nodo1=Nodo.new(@p1)
+                    @nodo2=Nodo.new(@p2)
+                    @nodo3=Nodo.new(@p3)
+                    @nodo4=Nodo.new(@p4)
+                    @nodo5=Nodo.new(@p5)
+                    @examen.push(@nodo1)
+                    @examen.push(@nodo2)
+                    @examen.push(@nodo3)
+                    @examen.push(@nodo4)
+                    @examen.push(@nodo5)
+                    expect(@examen.inicio).to eq(@nodo5)
+                    @examen.ext
+                    expect(@examen.inicio).to eq(@nodo4)
+                    @examen.ext
+                    expect(@examen.inicio).to eq(@nodo3)
+                    @examen.ext
+                    expect(@examen.inicio).to eq(@nodo2)
+                    @examen.ext
+                    expect(@examen.inicio).to eq(@nodo1)
+                end
+                
+                it 'Se extrae el primer elemento del examen.' do
+                    @nodo1=Nodo.new(@p1)
+                    @nodo2=Nodo.new(@p2)
+                    @nodo3=Nodo.new(@p3)
+                    @nodo4=Nodo.new(@p4)
+                    @nodo5=Nodo.new(@p5)
+                    @examen.push(@nodo1)
+                    @examen.push(@nodo2)
+                    @examen.push(@nodo3)
+                    @examen.push(@nodo4)
+                    @examen.push(@nodo5)
+                    
+                    @examen.ext
+                    @examen.ext
+                    @examen.ext
+                    @examen.ext
+                    expect(@examen.inicio).to eq(@nodo1)
+                    
+            
+                end
+    
+        end
                
               
        

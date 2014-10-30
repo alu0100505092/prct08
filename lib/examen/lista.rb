@@ -6,32 +6,33 @@ Nodo =Struct.new(:value, :next)
 
 class Lista
     def initialize(nodo)
-        @Inicio=Nodo.new(nodo,nil)
+        @inicio=Nodo.new(nil)
     end
     
     
-    def push(nodo)
-        nodo.next =@Inicio
+    def push(nodo)    #poner if preguntar Nodo vacio
+        if @inicio!=nil #preguntar a COROMOTO
+        nodo.next =@inicio
         #head=Nodo.new(nodo,@Inicio)
-        @Inicio = nodo
+        @inicio = nodo
+        end
     end
     
     
     def pop(nodo)
-        @Inicio=@Inicio.next
+        @inicio=@inicio.next
     end
     
     def ext 
-        
-        aux=@Inicio
-        @Inicio=@Inicio.next
+        aux=@inicio
+        @inicio=@inicio.next
         aux.value
     end
     
     
     def inicio
         
-        @Inicio
+        @inicio
     end
     
 end
