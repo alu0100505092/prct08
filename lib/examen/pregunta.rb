@@ -1,28 +1,28 @@
+require 'pry'
 module Examen
 
-    class EleccionSimple < Struct.new("Pregunta", :enunciado , :respuesta, :falsas)
-    
-         #attr_accessor :text, :right, :distractors
+    class EleccionSimple #< Struct.new("Pregunta", :enunciado , :respuesta, :falsas) 
+        #use a class to define behavior, together with a Struct that defines the data to which the class should be initialized.
+        attr_reader :pregunta
+        def initialize(arg)
+            @pregunta= Array.new(arg)
+           
+        end
+        
+         def empu(arg)
+             @pregunta.push(arg)
+         end
+         
+         def saca(arg)
+             retorna = @pregunta.to_a[arg].to_a[arg]
+             return retorna
+         end
          
          
-          #def initialize(args)
-              
-              
-              #Struct.new("Pregunta", :enunciado , :respuesta, :falsas)
-        #     #  @text=args[:text]
-        #     #  raise ArgumentError, 'Specify :text' unless @text
-        #     #  @right=args[:right]
-        #     #  raise ArgumentError, 'Specify :right' unless @right
-        #     #  @distractors=args[:distractors]
-        #     #  raise ArgumentError, 'Specify :distractors' unless @distractors
          
-             
-        #  end
-         
-         
-        #  def pregunta
-          
-         # end
+          def pregunta
+              " PREGUNTA : #{@p1}"
+          end
     end
     
 end
