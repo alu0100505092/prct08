@@ -12,7 +12,7 @@ module Examen
             @objeto=EleccionSimple.new(0)
             
             #Struct.new("Pregunta", :enunciado , :respuesta, :falsas)
-            @p1=Struct::Pregunta.new("¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots", "nil", ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
+            @p1=::Pregunta.new("¿Esto es una pregunta?", "Si", ['No','Busca','Tal vez'])
             @objeto.empu(@p1)
             cosa=@objeto.saca(0)
             otracosa=@objeto.preg(0)
@@ -22,27 +22,27 @@ module Examen
            context "Eleccion Simple" do
               
            
-                # it "Debe existir una pregunta " do
-                #     expect(@cosa).to eq("¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots")
-                #     expect(@objeto.to_a[0].to_a[0])=="nil"
-                #     expect(@objeto.to_a[0].to_a[0])==['#<Xyz:0xa000208>',0,'Ninguna de las anteriores']
-                # end
+                it "Debe existir una pregunta " do
+                    expect(@cosa).to eq("¿Esto es una pregunta?")
+                    expect(@objeto.to_a[0].to_a[0])=="Si"
+                    expect(@objeto.to_a[0].to_a[0])==['No','Busca','Tal vez']
+                end
                 
-                # it "Debe existir un metodo para obtener la pregunta "  do
-                #   expect(@otracosa).to eq("PREGUNTA : ¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots")
-                # end
+                it "Debe existir un metodo para obtener la pregunta "  do
+                  expect(@otracosa).to eq("PREGUNTA : ¿Esto es una pregunta?")
+                end
                 
-                # it "Deben existir opciones de respuesta " do
-                #     # expect(@p1.to_a[1]) != nil
-                #     # expect(@p1.to_a[2]) !=[nil] 
+                it "Deben existir opciones de respuesta " do
+                    # expect(@p1.to_a[1]) != nil
+                    # expect(@p1.to_a[2]) !=[nil] 
                     
-                # end
+                end
                     
-                # it "Se debe invocar a un metodo para obtener las opciones de respuesta" do
-                # end
+                it "Se debe invocar a un metodo para obtener las opciones de respuesta" do
+                end
                 
-                # it "Se deben mostrar por la consola la pregunta y las opciones de respuesta" do
-                # end
+                it "Se deben mostrar por la consola la pregunta y las opciones de respuesta" do
+                end
                 
                 
           it "Prueba de preguntas" do
