@@ -138,7 +138,7 @@ module Examen
                     @nodo1=Nodo.new(@p1)
                     @examen.push(@nodo1)
                     expect(@examen.inicio).to eq(@nodo1)
-                end
+                end
                 
                 it 'Se insertan varios elementos.' do
                     @nodo1=Nodo.new(@p1)
@@ -185,10 +185,39 @@ module Examen
     
         end
                
-              
+                describe Examen do
+                    before :each do
+                    @p=Verdaderofalso.new(:enunciado => '¿Pregunta de falso y verdadero',:respuesta => 'verdadero', :falsas => 'falso')
+                    end
+                    
+                    it "Debe heredar de EleccionSimple"
+                    #crear expect comparando pregunta
+                    
+                    it "Debe existir una pregunta de verdadero y falso"
+                    #debe evaluar de que tenga dos elementos, falso y verdadero
+                    
+                end
+                
+                
+                describe Examen do
+                    before :each do
+                        #crear lista examen
+                    end
+                    
+                    it "Las lista enlazadas se deben poder recorrer en ambos sentidos"
+                    
+                    it "Extraer el primer elemento del examen"
+                    
+                    it "Extraer el ultimo elemento del examen"
+                    
+                
+                    
+                    
+                end
+                
+    end    
        
        
         
-   end
- 
 end
+ 
