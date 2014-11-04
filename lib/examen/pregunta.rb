@@ -1,22 +1,24 @@
 require 'pry'
 module Examen
 
-    class EleccionSimple < Struct.new("Pregunta", :enunciado , :respuesta, :falsas) 
+    class EleccionSimple #< Struct.new("Pregunta", :enunciado , :respuesta, :falsas) 
         #use a class to define behavior, together with a Struct that defines the data to which the class should be initialized.
-        attr_reader :pregunta
+        attr_reader :enunciado, :respuesta,:falsas
         def initialize(arg)
-            @http://stackoverflow.com/questions/17492357/ruby-struct-vs-initializpregunta= Array.new(0)
+            @enunciado=arg[:enunciado]
+            @respuesta=arg[:respuesta]
+            @falsas=arg[:falsas]
            
         end
         
-         def empu(unapreg)
-             @pregunta.push(unapreg)
-         end
+        #  def empu(unapreg)
+        #      @pregunta.push(unapreg)
+        #  end
          
-         def saca(arg)
-             retorna = @pregunta.to_a[arg]
-             retorna
-         end
+        #  def saca(arg)
+        #      retorna = @pregunta.to_a[arg]
+        #      retorna
+        #  end
          
          
         #  class Person < Struct.new(:age, :gender)
@@ -25,10 +27,13 @@ module Examen
         #          end
         #  end
          
+         def extpreg
+             @enunciado
+         end
          
          
-          def preg arg
-              " PREGUNTA : #{self.saca(arg)}"
+          def preg 
+              "PREGUNTA : #{@enunciado}"
           end
     end
     

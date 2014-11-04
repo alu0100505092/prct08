@@ -5,17 +5,19 @@ module Examen
    class EleccionSimple
        describe Examen::EleccionSimple do
            
-           before :all do 
+           before :each do 
              # @preg=Examen::EleccionSimple.new({ text: '¿Pregunta?', right:'Respuesta', distractors:[1,2,3] })
              
              #@p1=Struct::Pregunta.new("¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots", "nil", ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
-            @objeto=EleccionSimple.new(0)
+            #@objeto=EleccionSimple.new(0)
             
             #Struct.new("Pregunta", :enunciado , :respuesta, :falsas)
-            @p1=::Pregunta.new("¿Esto es una pregunta?", "Si", ['No','Busca','Tal vez'])
-            @objeto.empu(@p1)
-            cosa=@objeto.saca(0)
-            otracosa=@objeto.preg(0)
+            #@p1=Struct::Pregunta.new("¿Esto es una pregunta?", "Si", ['No','Busca','Tal vez'])
+            #@objeto.empu(@p1)
+            #cosa=@objeto.saca(0)
+            #otracosa=@objeto.preg(0)
+            
+            @p=EleccionSimple.new({:enunciado => '¿Esto es una pregunta?', :respuesta => 'si', :falsas => ['No',0,'Tal vez']})
             
            end
            
@@ -23,18 +25,22 @@ module Examen
               
            
                 it "Debe existir una pregunta " do
-                    expect(@cosa).to eq("¿Esto es una pregunta?")
-                    expect(@objeto.to_a[0].to_a[0])=="Si"
-                    expect(@objeto.to_a[0].to_a[0])==['No','Busca','Tal vez']
+                    expect(@p.enunciado).to eq('¿Esto es una pregunta?')
+                    expect(@p.respuesta)=='si'
+                    expect(@p.falsas)==['No',0,'Tal vez']
+                    
+                    # expect(@cosa).to eq("¿Esto es una pregunta?")
+                    # expect(@objeto.to_a[0].to_a[0])=="Si"
+                    # expect(@objeto.to_a[0].to_a[0])==['No',0,'Tal vez']
                 end
                 
                 it "Debe existir un metodo para obtener la pregunta "  do
-                  expect(@otracosa).to eq("PREGUNTA : ¿Esto es una pregunta?")
+                  expect(@p.preg).to eq("PREGUNTA : ¿Esto es una pregunta?")
                 end
                 
                 it "Deben existir opciones de respuesta " do
-                    # expect(@p1.to_a[1]) != nil
-                    # expect(@p1.to_a[2]) !=[nil] 
+                     expect(@p.respuesta) != nil
+                     expect(@p.falsas) !=[nil] 
                     
                 end
                     
@@ -47,11 +53,11 @@ module Examen
                 
           it "Prueba de preguntas" do
               #creo las preguntas
-              @p1=Struct::Pregunta.new("¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots", "nil", ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
-              @p2=Struct::Pregunta.new("¿La siguiente definicion de un hash en ruby es valida?", "verdadero" , "falso")
-              @p3=Struct::Pregunta.new("¿Cual es la siguiente salida del codigo en ruby?", 1, ["bob","HEY","Ninguna"])
-              @p4=Struct::Pregunta.new("¿Cual es el tipo de objeto en el siguiente codigo en ruby?", "una instancia de la clase Class", ["una constante","un objeto","Ninguna"])
-              @p5=Struct::Pregunta.new("¿Es apropiado que una clase tablero herede de una clase juego?","verdadero" , "falso")
+              @p1=EleccionSimple.new(:enunciado => "¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
+              @p2=EleccionSimple.new(:enunciado =>"¿La siguiente definicion de un hash en ruby es valida?",:respuesta => "verdadero" ,:falsas => "falso")
+              @p3=EleccionSimple.new(:enunciado =>"¿Cual es la siguiente salida del codigo en ruby?",:respuesta =>1,:falsas => ["bob","HEY","Ninguna"])
+              @p4=EleccionSimple.new(:enunciado =>"¿Cual es el tipo de objeto en el siguiente codigo en ruby?",:respuesta => "una instancia de la clase Class",:falsas => ["una constante","un objeto","Ninguna"])
+              @p5=EleccionSimple.new(:enunciado =>"¿Es apropiado que una clase tablero herede de una clase juego?",:respuesta =>"verdadero" , :falsas =>"falso")
               
               #crear nodos
               
@@ -116,12 +122,12 @@ module Examen
          describe Examen do
                 before :all do
                     @examen = Lista.new(0)
-                    @p1=Struct::Pregunta.new("¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots", "nil", ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
-                    @p2=Struct::Pregunta.new("¿La siguiente definicion de un hash en ruby es valida?", "verdadero" , "falso")
-                    @p3=Struct::Pregunta.new("¿Cual es la siguiente salida del codigo en ruby?", 1, ["bob","HEY","Ninguna"])
-                    @p4=Struct::Pregunta.new("¿Cual es el tipo de objeto en el siguiente codigo en ruby?", "una instancia de la clase Class", ["una constante","un objeto","Ninguna"])
-                    @p5=Struct::Pregunta.new("¿Es apropiado que una clase tablero herede de una clase juego?","verdadero" , "falso")
-                    
+                    @p1=EleccionSimple.new(:enunciado => "¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
+                    @p2=EleccionSimple.new(:enunciado =>"¿La siguiente definicion de un hash en ruby es valida?",:respuesta => "verdadero" ,:falsas => "falso")
+                    @p3=EleccionSimple.new(:enunciado =>"¿Cual es la siguiente salida del codigo en ruby?",:respuesta =>1,:falsas => ["bob","HEY","Ninguna"])
+                    @p4=EleccionSimple.new(:enunciado =>"¿Cual es el tipo de objeto en el siguiente codigo en ruby?",:respuesta => "una instancia de la clase Class",:falsas => ["una constante","un objeto","Ninguna"])
+                    @p5=EleccionSimple.new(:enunciado =>"¿Es apropiado que una clase tablero herede de una clase juego?",:respuesta =>"verdadero" , :falsas =>"falso")
+              
                 end
                 
                 it 'Se deben insertar una pregunta en el examen.' do
