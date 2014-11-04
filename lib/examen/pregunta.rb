@@ -27,14 +27,19 @@ module Examen
         #          end
         #  end
          
-         def extpreg
-             @enunciado
-         end
+        def extresp 
+             
+             "RESPUESTAS : #{@respuesta}, #{@falsas}"
+        end
+         
+        def to_s
+            preg +  extresp
+        end
          
          
-          def preg 
+        def preg 
               "PREGUNTA : #{@enunciado}"
-          end
+        end
     end
     
 end

@@ -45,9 +45,13 @@ module Examen
                 end
                     
                 it "Se debe invocar a un metodo para obtener las opciones de respuesta" do
+                    expect(@p.extresp).to eq("RESPUESTAS : si, [\"No\", 0, \"Tal vez\"]")
+                    
+                    
                 end
                 
                 it "Se deben mostrar por la consola la pregunta y las opciones de respuesta" do
+                    expect(@p.to_s).to eq("PREGUNTA : ¿Esto es una pregunta?RESPUESTAS : si, [\"No\", 0, \"Tal vez\"]")
                 end
                 
                 
@@ -134,7 +138,7 @@ module Examen
                     @nodo1=Nodo.new(@p1)
                     @examen.push(@nodo1)
                     expect(@examen.inicio).to eq(@nodo1)
-                end
+                end
                 
                 it 'Se insertan varios elementos.' do
                     @nodo1=Nodo.new(@p1)
