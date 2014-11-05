@@ -1,10 +1,10 @@
 module Examen
         class Verdaderofalso < EleccionSimple
             
-            def initialize
+            def initialize arg
                     #attr_reader :enuncia2, :verdadero, :falso
                     #super(enunciado,verdadero,falso)
-                    super
+                    super(arg)
             end
             
             

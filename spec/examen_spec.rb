@@ -187,34 +187,103 @@ module Examen
                
                 describe Examen do
                     before :each do
-                    @p=Verdaderofalso.new(:enunciado => '¿Pregunta de falso y verdadero',:respuesta => 'verdadero', :falsas => 'falso')
+                    @p=Verdaderofalso.new(:enunciado => '¿Pregunta de falso y verdadero?',:respuesta => 'verdadero', :falsas => 'falso')
                     end
                     
-                    it "Debe heredar de EleccionSimple"
+                    it "Debe heredar de EleccionSimple" do
                     #crear expect comparando pregunta
-                    
-                    it "Debe existir una pregunta de verdadero y falso"
+                        expect(@p.enunciado).to eq('¿Pregunta de falso y verdadero?')
+                    end
+
+                    it "Debe existir una pregunta de verdadero y falso" do
                     #debe evaluar de que tenga dos elementos, falso y verdadero
+			        expect(@p.respuesta)=='verdadero'
+                        expect(@p.falsas)=='falso'
+		            end
                     
                 end
                 
                 
                 describe Examen do
-                    before :each do
-                        #crear lista examen
-                    end
+                    before :all do
+                            # @examen = Lista.new(0)
+                            # @p1=EleccionSimple.new(:enunciado => "¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
+                            # @p2=EleccionSimple.new(:enunciado =>"¿La siguiente definicion de un hash en ruby es valida?",:respuesta => "verdadero" ,:falsas => "falso")
+                            # @p3=EleccionSimple.new(:enunciado =>"¿Cual es la siguiente salida del codigo en ruby?",:respuesta =>1,:falsas => ["bob","HEY","Ninguna"])
+                            # @p4=EleccionSimple.new(:enunciado =>"¿Cual es el tipo de objeto en el siguiente codigo en ruby?",:respuesta => "una instancia de la clase Class",:falsas => ["una constante","un objeto","Ninguna"])
+                            # @p5=EleccionSimple.new(:enunciado =>"¿Es apropiado que una clase tablero herede de una clase juego?",:respuesta =>"verdadero" , :falsas =>"falso")
+                      
+                            @lista = Lista.new(0)
+                            @n1 = Nodo.new("Nodo 1")
+                            @n2 = Nodo.new("Nodo 2")  
+                            @n3 = Nodo.new("Nodo 3")
+                            end
+                            
+                #             it "Las lista enlazadas se deben poder recorrer en ambos sentidos" do
+                #             @nodo1=Nodo.new(@p1)
+                #             @nodo2=Nodo.new(@p2)
+                #   	        @nodo3=Nodo.new(@p3)
+                #             @nodo4=Nodo.new(@p4)
+                #             @nodo5=Nodo.new(@p5)
+                #             @examen.push(@nodo5)
+                #             @examen.push(@nodo4)
+                #             @examen.push(@nodo3)
+                #             @examen.push(@nodo2)
+                #             @examen.push(@nodo1)
+                #             expect(@examen.inicio).to eq(@nodo1)
+                #             expect(@examen.fin).to eq(@nodo5)
+                #             @examen.ext
+                #             expect(@examen.inicio).to eq(@nodo2)
+			             #   expect(@examen.fin).to eq(@nodo4)
+                #             @examen.ext
+                #             expect(@examen.inicio).to eq(@nodo3)
+                #             expect(@examen.fin).to eq(@nodo3)
+                       
+                #             end
                     
-                    it "Las lista enlazadas se deben poder recorrer en ambos sentidos"
+                        #     it "Extraer el primer elemento del examen" do
+                        #     @nodo1=Nodo.new(@p1)
+                        #     @nodo2=Nodo.new(@p2)
+                        #     @nodo3=Nodo.new(@p3)
+                        #     @nodo4=Nodo.new(@p4)
+                        #     @nodo5=Nodo.new(@p5)
+                        #     @examen.push(@nodo5)
+                        #     @examen.push(@nodo4)
+                        #     @examen.push(@nodo3)
+                        #     @examen.push(@nodo2)
+                        #     @examen.push(@nodo1)
+
+                        #      expect(@examen.inicio).to eq(@nodo1)
+
+      		                # end
                     
-                    it "Extraer el primer elemento del examen"
-                    
-                    it "Extraer el ultimo elemento del examen"
-                    
+                            it "Extraer el ultimo elemento del examen" do
+                            # @nodo1=Nodo.new(@p1)
+                            # @nodo2=Nodo.new(@p2)
+                            # @nodo3=Nodo.new(@p3)
+                            # @nodo4=Nodo.new(@p4)
+                            # @nodo5=Nodo.new(@p5)
+                            # @examen.push(@nodo1)
+                            # @examen.push(@nodo2)
+                            # @examen.push(@nodo3)
+                            # @examen.push(@nodo4)
+                            # @examen.push(@nodo5)
+
+                            # expect(@examen.fin).to eq(@nodo1)
+                            @nodo1=Nodo.new(@n1)
+                            #@nodo2=Nodo.new(@n2)
+                            #@nodo3=Nodo.new(@n3)
+                            @lista.push(@nodo1)
+                            #@lista.push(@nodo2)
+                            #@lista.push(@nodo3)
+                           
+                            expect(@lista.fin).to eq(@nodo1)
+		                    end
                 
                     
                     
                 end
-                
+                 
     end    
        
        
