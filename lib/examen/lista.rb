@@ -15,7 +15,7 @@ class Lista
     def push(nodo)    #poner if preguntar Nodo vacio
        if @inicio==nil
         @inicio=nodo
-        @fin=@inicio    
+        @fin=nodo    
             
         else    
         nodo.next =@inicio
@@ -24,14 +24,21 @@ class Lista
         end
     end
     
+    # def push(nodo)    
+    #     if @inicio!=nil 
+    #     nodo.next =@inicio
+    #     @inicio = nodo
+    #     end
+    # end
+    
+    
     def pushf(nodo)    #poner if preguntar Nodo vacio
-        if @fin.nil?
-           @inicio=nodo
-           
-            @fin=nodo
+       
+        @inicio=nodo
+        @fin=nodo
         
  
-        end
+       
     end
 
         

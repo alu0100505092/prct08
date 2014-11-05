@@ -271,11 +271,11 @@ module Examen
 
                             # expect(@examen.fin).to eq(@nodo1)
                             @nodo1=Nodo.new(@n1)
-                            #@nodo2=Nodo.new(@n2)
-                            #@nodo3=Nodo.new(@n3)
-                            @lista.push(@nodo1)
-                            #@lista.push(@nodo2)
-                            #@lista.push(@nodo3)
+                            @nodo2=Nodo.new(@n2)
+                            @nodo3=Nodo.new(@n3)
+                            @lista.pushf(@nodo1)
+                            @lista.push(@nodo2)
+                            @lista.push(@nodo3)
                            
                             expect(@lista.fin).to eq(@nodo1)
 		                    end
