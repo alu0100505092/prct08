@@ -12,10 +12,9 @@ class Lista
     
     
     def push(nodo)    #poner if preguntar Nodo vacio
-        if @inicio!=nil #preguntar a COROMOTO
+        if @inicio!=nil
         nodo.next =@inicio
         @inicio.previous =nodo
-        #head=Nodo.new(nodo,@Inicio)
         @inicio = nodo
         else 
         @inicio = nodo
@@ -33,7 +32,7 @@ class Lista
     def ext 
         aux=@inicio
         @inicio=@inicio.next
-        @fin=@fin.previous
+        #@fin.previous =@fin
         aux.value
     end
     
