@@ -3,6 +3,13 @@ module Examen
 
     class EleccionSimple #< Struct.new("Pregunta", :enunciado , :respuesta, :falsas) 
         #use a class to define behavior, together with a Struct that defines the data to which the class should be initialized.
+        #----------------------------------------------------------
+        #----------------------------------------------------------
+        #Mas general una clase pregunta y que eleccion simple y verdader falso hereden de ella, en pregunta instancear variable 'ponderacion'
+        #que permita comprar el nivel de dificultad entre dos preguntas distintas
+        #----------------------------------------------------------
+        #----------------------------------------------------------
+        
         attr_reader :enunciado, :respuesta,:falsas
         def initialize(arg)
             @enunciado=arg[:enunciado]

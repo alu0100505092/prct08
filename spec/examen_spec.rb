@@ -191,7 +191,14 @@ module Examen
                     end
                     
                     it "Debe heredar de EleccionSimple" do
+                    #----------------------------------------------------------
+                    #----------------------------------------------------------
                     #crear expect comparando pregunta
+                    #pregunte es una instancia de o intance_of -- is_a
+                    #----------------------------------------------------------
+                    #----------------------------------------------------------
+                        expect(@p).instance_of?(Verdaderofalso)
+                        expect(@p).is_a?(EleccionSimple)
                         expect(@p.enunciado).to eq('¿Pregunta de falso y verdadero?')
                     end
 
@@ -200,6 +207,8 @@ module Examen
 			        expect(@p.respuesta)=='verdadero'
                         expect(@p.falsas)=='falso'
 		            end
+		            
+		            
                     
                 end
                 
@@ -213,7 +222,7 @@ module Examen
                             @p4=EleccionSimple.new(:enunciado =>"¿Cual es el tipo de objeto en el siguiente codigo en ruby?",:respuesta => "una instancia de la clase Class",:falsas => ["una constante","un objeto","Ninguna"])
                             @p5=EleccionSimple.new(:enunciado =>"¿Es apropiado que una clase tablero herede de una clase juego?",:respuesta =>"verdadero" , :falsas =>"falso")
                       
-                            # @lista = Lista.new(0)
+                            # @lista = Li••••••••••••••••sta.new(0)
                             # @n1 = Nodo.new("Nodo 1")
                             # @n2 = Nodo.new("Nodo 2")  
                             # @n3 = Nodo.new("Nodo 3")
@@ -221,6 +230,7 @@ module Examen
                             
                              it "Las lista enlazadas se deben poder recorrer en ambos sentidos" do
                             @nodo1=Nodo.new(@p1)
+                            
                             @nodo2=Nodo.new(@p2)
                   	        @nodo3=Nodo.new(@p3)
                             @nodo4=Nodo.new(@p4)
