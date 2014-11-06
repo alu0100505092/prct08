@@ -219,7 +219,7 @@ module Examen
                             @n3 = Nodo.new("Nodo 3")
                             end
                             
-                #             it "Las lista enlazadas se deben poder recorrer en ambos sentidos" do
+                             it "Las lista enlazadas se deben poder recorrer en ambos sentidos" do
                 #             @nodo1=Nodo.new(@p1)
                 #             @nodo2=Nodo.new(@p2)
                 #   	        @nodo3=Nodo.new(@p3)
@@ -238,10 +238,23 @@ module Examen
                 #             @examen.ext
                 #             expect(@examen.inicio).to eq(@nodo3)
                 #             expect(@examen.fin).to eq(@nodo3)
+                            @nodo1=Nodo.new(@n1)
+                            @nodo2=Nodo.new(@n2)
+                            @nodo3=Nodo.new(@n3)
+                            @lista.pushf(@nodo1)
+                            @lista.push(@nodo2)
+                            @lista.push(@nodo3)
+                           
+                            expect(@lista.inicio).to eq(@nodo3)
+                            expect(@lista.fin).to eq(@nodo1)
+                            @lista.ext
+                            @lista.extfin
+                            expect(@lista.inicio).to eq(@nodo2)
+                            expect(@lista.fin).to eq(@nodo2)
                        
-                #             end
+                             end
                     
-                        #     it "Extraer el primer elemento del examen" do
+                        #   it "Extraer el primer elemento del examen" do
                         #     @nodo1=Nodo.new(@p1)
                         #     @nodo2=Nodo.new(@p2)
                         #     @nodo3=Nodo.new(@p3)
@@ -254,8 +267,9 @@ module Examen
                         #     @examen.push(@nodo1)
 
                         #      expect(@examen.inicio).to eq(@nodo1)
+                            
 
-      		                # end
+      		                #  end
                     
                             it "Extraer el ultimo elemento del examen" do
                             # @nodo1=Nodo.new(@p1)
@@ -268,7 +282,7 @@ module Examen
                             # @examen.push(@nodo3)
                             # @examen.push(@nodo4)
                             # @examen.push(@nodo5)
-
+                                
                             # expect(@examen.fin).to eq(@nodo1)
                             @nodo1=Nodo.new(@n1)
                             @nodo2=Nodo.new(@n2)
