@@ -1,7 +1,7 @@
 require 'pry'
 module Examen
 
-    class EleccionSimple #< Struct.new("Pregunta", :enunciado , :respuesta, :falsas) 
+    class Pregunta #< Struct.new("Pregunta", :enunciado , :respuesta, :falsas) 
         #use a class to define behavior, together with a Struct that defines the data to which the class should be initialized.
         #----------------------------------------------------------
         #----------------------------------------------------------
@@ -12,6 +12,7 @@ module Examen
         
         attr_reader :enunciado, :respuesta,:falsas
         def initialize(arg)
+           # @valor=arg[:valor]
             @enunciado=arg[:enunciado]
             @respuesta=arg[:respuesta]
             @falsas=arg[:falsas]
@@ -37,6 +38,7 @@ module Examen
         def extresp 
              
              "RESPUESTAS : #{@respuesta}, #{@falsas}"
+             
         end
          
         def to_s
@@ -47,6 +49,11 @@ module Examen
         def preg 
               "PREGUNTA : #{@enunciado}"
         end
+        
+        # def <=> other
+        #      self.valor <=> other.valor
+        # end 
+        
     end
     
 end

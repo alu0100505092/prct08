@@ -1,5 +1,5 @@
 module Examen
-        class Verdaderofalso < Pregunta
+        class EleccionSimple < Pregunta
             
             def initialize arg
                     #attr_reader :enuncia2, :verdadero, :falso
