@@ -2,8 +2,8 @@ require 'spec_helper'
 require 'examen'
 
 module Examen
-   class EleccionSimple
-       describe Examen::EleccionSimple do
+   class Pregunta
+       describe Examen::Pregunta do
            
            before :each do 
              # @preg=Examen::EleccionSimple.new({ text: '¿Pregunta?', right:'Respuesta', distractors:[1,2,3] })
@@ -313,16 +313,71 @@ module Examen
                             @examen.push(@nodo1)
                       
                         end
-                    it "Comparacion de la dificultad de las preguntas" do
-                           
-                           expect(@p1.valor).should > (@p2.valor)
-                           expect(@p1.valor).should == (@p4.valor)
-                           expect(@p5.valor).should < (@p4.valor)
-                            
-                       
-                             end    
                         
-                end     
+                    
+                    
+                        
+                    context "Comparacion de la dificultad de las preguntas" do
+                        
+                    
+                        it "La pregunta p1 debe tener una mayor dificultad que la pregunta p2" do
+                             #expect(@p1.valor).should > (@p2.valor)
+                             expect(@p1.valor > @p2.valor).to eq(true)
+                        end
+                        
+                        it "La pregunta p1 debe tener una mayor dificultad que la pregunta p2" do
+                             #expect(@p1.valor).should > (@p2.valor)
+                             expect(@p1.valor < @p2.valor).to eq(false)
+                        end
+                        
+                        it "La pregunta p1 debe tener una dificultad igual que la pregunta p4" do
+                            #expect(@p1.valor).should == (@p4.valor)
+                            expect(@p1.valor == @p4.valor).to eq(true)
+                        end
+                        
+                        it "La pregunta p5 debe tener una dificultad menor que la pregunta p4" do
+                            #expect(@p5.valor).should < (@p4.valor)
+                            expect(@p5.valor < @p4.valor).to eq(true)
+                        end
+                    end
+                    
+                    
+                    
+                    
+                    context "Enumerable las listas enlazadas" do
+                        
+                        it "La lista es enumerable" do
+                            string = ""
+                             @examen.each do |l| 
+                                string << "test"
+                                string << "\n" 
+                            end
+                            expect(string).to eq("test\n"*5)
+                        end
+                        
+                        
+                        it "Debe contar los elementos de la lista" do
+                        expect(@examen.count).to eq(5)
+                        
+                        end
+                        
+                         it "Drop" do
+                            expect(@examen.drop(5)).to eq([])
+                         end
+                        
+                        it "Find index" do
+                            expect(@examen.find_index {|i| i.value == @nodo3.value}).to eq(2)
+                        end
+                        
+                        
+                        
+                        
+                    end
+                        
+                end 
+                
+                
+                
     end    
        
        

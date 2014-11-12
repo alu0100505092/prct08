@@ -11,6 +11,7 @@ module Examen
         #----------------------------------------------------------
         
         attr_reader :valor, :enunciado, :respuesta,:falsas
+        include Comparable
         def initialize(arg)
             @valor=arg[:valor]
             @enunciado=arg[:enunciado]
@@ -19,22 +20,7 @@ module Examen
            
         end
         
-        #  def empu(unapreg)
-        #      @pregunta.push(unapreg)
-        #  end
-         
-        #  def saca(arg)
-        #      retorna = @pregunta.to_a[arg]
-        #      retorna
-        #  end
-         
-         
-        #  class Person < Struct.new(:age, :gender)
-        #          def to_s
-        #              "Age: #{age}; Gender: #{gender}"
-        #          end
-        #  end
-         
+       
         def extresp 
              
              "RESPUESTAS : #{@respuesta}, #{@falsas}"
@@ -51,6 +37,7 @@ module Examen
         end
         
         def <=> other
+            return nil unless other.is_a? Examen
              self.valor <=> other.valor
         end 
         
