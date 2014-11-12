@@ -61,4 +61,9 @@ class Lista
         
         @fin
     end
+    
+    def each 
+         
+    end    
+    
 end
