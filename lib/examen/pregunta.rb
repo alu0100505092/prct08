@@ -10,9 +10,9 @@ module Examen
         #----------------------------------------------------------
         #----------------------------------------------------------
         
-        attr_reader :enunciado, :respuesta,:falsas
+        attr_reader :valor, :enunciado, :respuesta,:falsas
         def initialize(arg)
-           # @valor=arg[:valor]
+            @valor=arg[:valor]
             @enunciado=arg[:enunciado]
             @respuesta=arg[:respuesta]
             @falsas=arg[:falsas]
@@ -50,9 +50,9 @@ module Examen
               "PREGUNTA : #{@enunciado}"
         end
         
-        # def <=> other
-        #      self.valor <=> other.valor
-        # end 
+        def <=> other
+             self.valor <=> other.valor
+        end 
         
     end
     

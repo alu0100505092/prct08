@@ -250,19 +250,7 @@ module Examen
                             @examen.extfin
                             expect(@examen.inicio).to eq(@nodo3)
                             expect(@examen.fin).to eq(@nodo3)
-                            # @nodo1=Nodo.new(@n1)
-                            # @nodo2=Nodo.new(@n2)
-                            # @nodo3=Nodo.new(@n3)
-                            # @lista.pushf(@nodo1)
-                            # @lista.push(@nodo2)
-                            # @lista.push(@nodo3)
-                           
-                            # expect(@lista.inicio).to eq(@nodo3)
-                            # expect(@lista.fin).to eq(@nodo1)
-                            # @lista.ext
-                            # @lista.extfin
-                            # expect(@lista.inicio).to eq(@nodo2)
-                            # expect(@lista.fin).to eq(@nodo2)
+                            
                        
                              end
                     
@@ -297,20 +285,44 @@ module Examen
                                 
                             expect(@examen.fin).to eq(@nodo1)
                             
-                            # @nodo1=Nodo.new(@n1)
-                            # @nodo2=Nodo.new(@n2)
-                            # @nodo3=Nodo.new(@n3)
-                            # @lista.pushf(@nodo1)
-                            # @lista.push(@nodo2)
-                            # @lista.push(@nodo3)
-                           
-                            # expect(@lista.fin).to eq(@nodo1)
+                            
 		                    end
                 
                     
                     
                 end
                  
+                 describe Examen do
+                     before :all do
+                            @examen = Lista.new(0)
+                            @p1=EleccionSimple.new(:valor => "5",:enunciado => "¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
+                            @p2=EleccionSimple.new(:valor => "2",:enunciado =>"¿La siguiente definicion de un hash en ruby es valida?",:respuesta => "verdadero" ,:falsas => "falso")
+                            @p3=EleccionSimple.new(:valor => "3",:enunciado =>"¿Cual es la siguiente salida del codigo en ruby?",:respuesta =>1,:falsas => ["bob","HEY","Ninguna"])
+                            @p4=EleccionSimple.new(:valor => "5",:enunciado =>"¿Cual es el tipo de objeto en el siguiente codigo en ruby?",:respuesta => "una instancia de la clase Class",:falsas => ["una constante","un objeto","Ninguna"])
+                            @p5=EleccionSimple.new(:valor => "1",:enunciado =>"¿Es apropiado que una clase tablero herede de una clase juego?",:respuesta =>"verdadero" , :falsas =>"falso")
+                            
+                            @nodo1=Nodo.new(@p1)
+                            @nodo2=Nodo.new(@p2)
+                  	        @nodo3=Nodo.new(@p3)
+                            @nodo4=Nodo.new(@p4)
+                            @nodo5=Nodo.new(@p5)
+                            @examen.pushf(@nodo5)
+                            @examen.push(@nodo4)
+                            @examen.push(@nodo3)
+                            @examen.push(@nodo2)
+                            @examen.push(@nodo1)
+                      
+                        end
+                    it "Comparacion de la dificultad de las preguntas" do
+                           
+                           expect(@p1.valor).should > (@p2.valor)
+                           expect(@p1.valor).should == (@p4.valor)
+                           expect(@p5.valor).should < (@p4.valor)
+                            
+                       
+                             end    
+                        
+                end     
     end    
        
        
