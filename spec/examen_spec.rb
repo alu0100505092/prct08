@@ -312,6 +312,7 @@ module Examen
                             @examen.push(@nodo2)
                             @examen.push(@nodo1)
                       
+                      
                         end
                         
                     
@@ -349,10 +350,10 @@ module Examen
                         it "La lista es enumerable" do
                             string = ""
                              @examen.each do |l| 
-                                string << "test"
+                                string << "probando"
                                 string << "\n" 
                             end
-                            expect(string).to eq("test\n"*5)
+                            expect(string).to eq("probando\n"*5)
                         end
                         
                         
@@ -365,10 +366,13 @@ module Examen
                             expect(@examen.drop(5)).to eq([])
                          end
                         
-                        it "Find index" do
+                        it "Encontrar index" do
                             expect(@examen.find_index {|i| i.value == @nodo3.value}).to eq(2)
                         end
                         
+                        it "Se puede hacer un each" do
+		                     @examen.each{|i| i}
+	                	end
                         
                         
                         

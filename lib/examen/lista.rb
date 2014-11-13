@@ -1,10 +1,11 @@
 
-include Enumerable
+
 Nodo =Struct.new(:value, :next, :prev)
 
 
 
 class Lista
+    include Enumerable
     
     def initialize(nodo)
         @inicio=Nodo.new(nil)
@@ -71,6 +72,7 @@ class Lista
              tempo=tempo.next
          end
     end    
+    
     
 end
 
