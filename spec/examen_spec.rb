@@ -295,6 +295,7 @@ module Examen
                  describe Examen do
                      before :all do
                             @examen = Lista.new(0)
+                            @examensort=Lista.new(0)
                             @p1=EleccionSimple.new(:valor => "5",:enunciado => "¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
                             @p2=EleccionSimple.new(:valor => "2",:enunciado =>"¿La siguiente definicion de un hash en ruby es valida?",:respuesta => "verdadero" ,:falsas => "falso")
                             @p3=EleccionSimple.new(:valor => "3",:enunciado =>"¿Cual es la siguiente salida del codigo en ruby?",:respuesta =>1,:falsas => ["bob","HEY","Ninguna"])
@@ -306,13 +307,13 @@ module Examen
                   	        @nodo3=Nodo.new(@p3)
                             @nodo4=Nodo.new(@p4)
                             @nodo5=Nodo.new(@p5)
+                            
                             @examen.pushf(@nodo5)
                             @examen.push(@nodo4)
                             @examen.push(@nodo3)
                             @examen.push(@nodo2)
                             @examen.push(@nodo1)
-                      
-                      
+                            
                         end
                         
                     
@@ -323,22 +324,22 @@ module Examen
                     
                         it "La pregunta p1 debe tener una mayor dificultad que la pregunta p2" do
                              #expect(@p1.valor).should > (@p2.valor)
-                             expect(@p1.valor > @p2.valor).to eq(true)
+                             expect(@p1 > @p2).to eq(true)
                         end
                         
                         it "La pregunta p1 debe tener una mayor dificultad que la pregunta p2" do
                              #expect(@p1.valor).should > (@p2.valor)
-                             expect(@p1.valor < @p2.valor).to eq(false)
+                             expect(@p1 < @p2).to eq(false)
                         end
                         
                         it "La pregunta p1 debe tener una dificultad igual que la pregunta p4" do
                             #expect(@p1.valor).should == (@p4.valor)
-                            expect(@p1.valor == @p4.valor).to eq(true)
+                            expect(@p1 == @p4).to eq(true)
                         end
                         
                         it "La pregunta p5 debe tener una dificultad menor que la pregunta p4" do
                             #expect(@p5.valor).should < (@p4.valor)
-                            expect(@p5.valor < @p4.valor).to eq(true)
+                            expect(@p5 < @p4).to eq(true)
                         end
                         
                         it "La pregunta p1 es mayor que la pregunta p3 : True"  do
@@ -392,8 +393,20 @@ module Examen
 		                     @examen.each{|i| i}
 	                	end
                         
+                        it "Debe iteriar en la lista enlazada : min" do
+                             expect(@examen.min_by{|nodo| nodo.length} != @nodo1).to eq(false)
+                              
+                        end
+                        
+                        it "Debe iteriar en la lista enlazada : max" do
+                           
+                            expect(@examen.max_by{|nodo| nodo.length}).to eq(@nodo1)
+                             
+                        end
                         
                         
+                        
+                       
                     end
                         
                 end 

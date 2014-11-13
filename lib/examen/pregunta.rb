@@ -36,8 +36,8 @@ module Examen
         end
         
         def <=> other
-            return nil unless other.is_a? Examen
-             self <=> other
+            #return nil unless other.is_a? Examen
+             self.valor <=> other.valor
         end 
         
           

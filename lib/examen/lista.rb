@@ -1,10 +1,7 @@
-
-
+include Enumerable
 Nodo =Struct.new(:value, :next, :prev)
-
-
-
 class Lista
+    Nodo =Struct.new(:value, :next, :prev)
     include Enumerable
     
     def initialize(nodo)
