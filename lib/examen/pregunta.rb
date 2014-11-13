@@ -17,7 +17,6 @@ module Examen
             @enunciado=arg[:enunciado]
             @respuesta=arg[:respuesta]
             @falsas=arg[:falsas]
-           
         end
         
        
@@ -38,9 +37,10 @@ module Examen
         
         def <=> other
             return nil unless other.is_a? Examen
-             self.valor <=> other.valor
+             self <=> other
         end 
         
+          
     end
     
 end

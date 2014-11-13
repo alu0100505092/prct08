@@ -340,6 +340,24 @@ module Examen
                             #expect(@p5.valor).should < (@p4.valor)
                             expect(@p5.valor < @p4.valor).to eq(true)
                         end
+                        
+                        it "La pregunta p1 es mayor que la pregunta p3 : True"  do
+                            expect(@p1.enunciado.size > @p3.enunciado.size).to eq(true)
+                        end
+                        
+                        it "La pregunta p es mayor que la pregunta p : False"  do
+                            expect(@p5.enunciado.size < @p2.enunciado.size).to eq(false)
+                        end
+                        
+                        it "La pregunta p5 es igual a la pregunta p5 : True"  do
+                            expect(@p5.enunciado.size == @p5.enunciado.size).to eq(true)
+                        end
+                        
+                        it "La pregunta p5 no es igual a la pregunta p2"  do
+                            expect(@p5.enunciado.size == @p2.enunciado.size).to eq(false)
+                        end
+                        
+                        
                     end
                     
                     
