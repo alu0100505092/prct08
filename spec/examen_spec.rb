@@ -293,7 +293,7 @@ module Examen
                 end
                  
                  describe Examen do
-                     before :all do
+                     before :each do
                             @examen = Lista.new(0)
                             @examensort=Lista.new(0)
                             @p1=EleccionSimple.new(:valor => "5",:enunciado => "¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
@@ -403,7 +403,10 @@ module Examen
                             expect(@examen.max_by{|nodo| nodo.length}).to eq(@nodo1)
                              
                         end
-                        
+                        it "Debe iteriar en la lista enlazada : sort" do
+                             expect(@examen.sort_by {|palabra| palabra.length} != @examen).to eq(true)
+                             
+                        end
                         
                         
                        
