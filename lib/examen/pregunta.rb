@@ -1,14 +1,7 @@
 require 'pry'
 module Examen
 
-    class Pregunta #< Struct.new("Pregunta", :enunciado , :respuesta, :falsas) 
-        #use a class to define behavior, together with a Struct that defines the data to which the class should be initialized.
-        #----------------------------------------------------------
-        #----------------------------------------------------------
-        #Mas general una clase pregunta y que eleccion simple y verdader falso hereden de ella, en pregunta instancear variable 'ponderacion'
-        #que permita comprar el nivel de dificultad entre dos preguntas distintas
-        #----------------------------------------------------------
-        #----------------------------------------------------------
+    class Pregunta 
         
         attr_reader :valor, :enunciado, :respuesta,:falsas
         include Comparable
@@ -36,8 +29,8 @@ module Examen
         end
         
         def <=> other
-            #return nil unless other.is_a? Examen
-             self.valor <=> other.valor
+            
+            self.valor <=> other.valor
         end 
         
           
