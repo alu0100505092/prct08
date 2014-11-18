@@ -426,17 +426,21 @@ module Examen
                             
                         end
                 
-                    it "para producir un HTML razonable" do
-                        r = %r{
-                        (<input\s+
-                        type="radio"\s+
-                        value="\d+"\s+
-                        .*
-                        name="\d+">\s+\d+\s+
-                        ){4}
-                        }x                     
-                        expect(@q1.to_html).to  match(r)
-                    end
+                    # it "Puede ser convertido a html" do
+                    #     expect(@p1).to respond_to :to_html
+                    # end    
+                
+                    # it "para producir un HTML razonable" do
+                    #     r = %r{
+                    #     (<input\s+
+                    #     type="radio"\s+
+                    #     value="\d+"\s+
+                    #     .*
+                    #     name="\d+">\s+\d+\s+
+                    #     ){4}
+                    #     }x                     
+                    #     expect(@p1.to_html).to  match(r)
+                    # end
                 end    
                 
                 
