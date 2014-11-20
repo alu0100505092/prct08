@@ -40,7 +40,8 @@ module Examen
              self.valor <=> other.valor
         end 
         
-          
+        
+        
     end
     
 end

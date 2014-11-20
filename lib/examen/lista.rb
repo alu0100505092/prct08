@@ -61,6 +61,12 @@ class Lista
         @fin
     end
     
+    
+    def respuesta
+            @respuesta
+        end
+          
+    
     def each(&block)
          tempo = @inicio
          while tempo != nil

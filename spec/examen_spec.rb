@@ -222,10 +222,7 @@ module Examen
                             @p4=EleccionSimple.new(:enunciado =>"¿Cual es el tipo de objeto en el siguiente codigo en ruby?",:respuesta => "una instancia de la clase Class",:falsas => ["una constante","un objeto","Ninguna"])
                             @p5=EleccionSimple.new(:enunciado =>"¿Es apropiado que una clase tablero herede de una clase juego?",:respuesta =>"verdadero" , :falsas =>"falso")
                       
-                            # @lista = Li••••••••••••••••sta.new(0)
-                            # @n1 = Nodo.new("Nodo 1")
-                            # @n2 = Nodo.new("Nodo 2")  
-                            # @n3 = Nodo.new("Nodo 3")
+                            
                             end
                             
                              it "Las lista enlazadas se deben poder recorrer en ambos sentidos" do
@@ -295,7 +292,6 @@ module Examen
                  describe Examen do
                      before :each do
                             @examen = Lista.new(0)
-                            @examensort=Lista.new(0)
                             @p1=EleccionSimple.new(:valor => "5",:enunciado => "¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
                             @p2=EleccionSimple.new(:valor => "2",:enunciado =>"¿La siguiente definicion de un hash en ruby es valida?",:respuesta => "verdadero" ,:falsas => "falso")
                             @p3=EleccionSimple.new(:valor => "3",:enunciado =>"¿Cual es la siguiente salida del codigo en ruby?",:respuesta =>1,:falsas => ["bob","HEY","Ninguna"])
@@ -412,13 +408,104 @@ module Examen
                        
                     end
                         
-                end 
+                    context "Clase Exam " do
+                        
+                        before :each do
+                            @examen = Lista.new(0)
+                            @p1=EleccionSimple.new(:valor => "5",:enunciado => "Pregunta A",:respuesta =>"NN",:falsas => ['false',0,'Ninguna de las anteriores'])
+                            @p2=Verdaderofalso.new(:valor => "2",:enunciado =>"¿2+2=5?",:respuesta => "falso" ,:falsas => "verdadero")
+                            @p3=EleccionSimple.new(:valor => "3",:enunciado =>"¿Ruby es un lenguaje orientado a ________ ?",:respuesta =>'objetos',:falsas => ["dinamico","programacion","agilidad"])
+                            
+                            
+                            @nodo1=Nodo.new(@p1)
+                            @nodo2=Nodo.new(@p2)
+                  	        @nodo3=Nodo.new(@p3)
+                           
+                            
+                            @examen.pushf(@nodo1)
+                            @examen.push(@nodo2)
+                            @examen.push(@nodo3)
+                           
+                            @exam=Exam.new(@examen)
+                           
+                          
+                        end
+                        
+                        it "Debe existir una clase examen" do
+                            expect(@exam).instance_of?(Exam)
+                        end
+                        
+                        it "#Añadir una pregunta al examen" do
+                            expect(@exam.insertQuestion(@p1)).to eq(@p1)
+                        end
+                        
+                        it "Se deben mostrar ordenadas las preguntas" do
+                        
+                         expect(@exam.to_s).to eq(@p3.to_s+"\n"+@p2.to_s+"\n"+@p1.to_s+"\n")
+                        
+                        end
+                        
+                        
+                    
+                    end
+                        
+                        
+                    
+                     
+                    
+                    context "#Interfaz" do
+                         
+                        before :each do
+                            @examen = Lista.new(0)
+                            @p1=EleccionSimple.new(:valor => "5",:enunciado => "¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
+                            @p2=EleccionSimple.new(:valor => "2",:enunciado =>"¿La siguiente definicion de un hash en ruby es valida?",:respuesta => "verdadero" ,:falsas => "falso")
+                            @p3=EleccionSimple.new(:valor => "3",:enunciado =>"¿Cual es la siguiente salida del codigo en ruby?",:respuesta =>1,:falsas => ["bob","HEY","Ninguna"])
+                            @p4=EleccionSimple.new(:valor => "5",:enunciado =>"¿Cual es el tipo de objeto en el siguiente codigo en ruby?",:respuesta => "una instancia de la clase Class",:falsas => ["una constante","un objeto","Ninguna"])
+                            @p5=EleccionSimple.new(:valor => "1",:enunciado =>"¿Es apropiado que una clase tablero herede de una clase juego?",:respuesta =>"verdadero" , :falsas =>"falso")
+                            
+                            @rc1="nil"
+                            @rc2="verdadero"
+                            @rc3="1"
+                            @rc4="una instancia de la clase Class"
+                            @rc5="verdadero"
+                            @rf2="falso"
+                            @rf3="HEY"
+                            @rf4="Ninguna"
+                            
+                            arrayRespuestasCorrectas = ["@rc1","@rc2","@rc3","@rc4","@rc5"]
+                            
+                             
+                            @interfaz=Interfaz.new(arrayRespuestasCorrectas)
+                           
+                          
+                        end
+                        it "#Se evalua si todas las respuestas correctas" do
+                            
+                            arrayRespuestas = ["@rc1","@rc2","@rc3","@rc4","@rc5"]
+                            expect(@interfaz.compresp(arrayRespuestas)).to eq("Su nota es: Sobresaliente 10")
+      
+                        end
+                         
+                        it "#Se evalua si el examen está suspenso" do
+                            arrayRespuestas = ["@rc1","@rf2","@rc3","@rf4","@f5"]
+                            expect(@interfaz.compresp(arrayRespuestas)).to eq("Ha suspendido el examen: 2/5")
+                        end
+                     
+                        
+                    end    
+                    
+                end
+                     
+                    
+                        
+                        
+     end 
                 
                 
                 
-    end    
+end    
        
        
-        
-end
+
+ 
  
