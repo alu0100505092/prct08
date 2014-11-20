@@ -11,18 +11,6 @@ module Examen
             correctas=0 
             i=0
             n=0
-            # if resp[i] ==  @preguntas[i]
-            #     correctas+=1
-            # end
-            # i+=1
-            # if resp[i] ==  @preguntas[i]
-            #     correctas+=1
-            # end
-            # i+=1
-            # if resp[i] ==  @preguntas[i]
-            #     correctas+=1
-            # end
-            # i+=1
             
             while n < 5 do
                 if @examen[i] == resp[i]

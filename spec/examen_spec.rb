@@ -8,7 +8,7 @@ module Examen
            before :each do 
             
             
-            @p=EleccionSimple.new({:enunciado => '¿Esto es una pregunta?', :respuesta => 'si', :falsas => ['No',0,'Tal vez']})
+            @p=EleccionSimple.new({:enunciado => "¿Esto es una pregunta?", :respuesta => 'si', :falsas => ['No',0,'Tal vez']})
             
            end
            
@@ -433,6 +433,10 @@ module Examen
                         
                         end
                         
+                        it "Pertenece a la clase lista_enlazada " do
+	                        expect(@exam.class.ancestors) == Lista
+	                    end
+                        
                         
                     
                     end
@@ -462,6 +466,7 @@ module Examen
                             
                             arrayRespuestasCorrectas = ["@rc1","@rc2","@rc3","@rc4","@rc5"]
                             
+                            
                              
                             @interfaz=Interfaz.new(arrayRespuestasCorrectas)
                            
@@ -479,6 +484,9 @@ module Examen
                             expect(@interfaz.compresp(arrayRespuestas)).to eq("Ha suspendido el examen: 2/5")
                         end
                      
+                        it "Interfaz Pertenece a la clase lista_enlazada " do
+	                        expect(@interfaz.class.ancestors) == Lista
+	                    end
                         
                     end    
                     
@@ -488,47 +496,7 @@ module Examen
                         
                         
      end 
-                
-                describe Examen do
-                     before :all do
-                            @examen = Lista.new(0)
-                            @examensort=Lista.new(0)
-                            @p1=EleccionSimple.new(:valor => "5",:enunciado => "¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
-                            @p2=EleccionSimple.new(:valor => "2",:enunciado =>"¿La siguiente definicion de un hash en ruby es valida?",:respuesta => "verdadero" ,:falsas => "falso")
-                            @p3=EleccionSimple.new(:valor => "3",:enunciado =>"¿Cual es la siguiente salida del codigo en ruby?",:respuesta =>1,:falsas => ["bob","HEY","Ninguna"])
-                            @p4=EleccionSimple.new(:valor => "5",:enunciado =>"¿Cual es el tipo de objeto en el siguiente codigo en ruby?",:respuesta => "una instancia de la clase Class",:falsas => ["una constante","un objeto","Ninguna"])
-                            @p5=EleccionSimple.new(:valor => "1",:enunciado =>"¿Es apropiado que una clase tablero herede de una clase juego?",:respuesta =>"verdadero" , :falsas =>"falso")
-                            
-                            @nodo1=Nodo.new(@p1)
-                            @nodo2=Nodo.new(@p2)
-                  	        @nodo3=Nodo.new(@p3)
-                            @nodo4=Nodo.new(@p4)
-                            @nodo5=Nodo.new(@p5)
-                            
-                            @examen.pushf(@nodo5)
-                            @examen.push(@nodo4)
-                            @examen.push(@nodo3)
-                            @examen.push(@nodo2)
-                            @examen.push(@nodo1)
-                            
-                        end
-                
-                    # it "Puede ser convertido a html" do
-                    #     expect(@p1).to respond_to :to_html
-                    # end    
-                
-                    # it "para producir un HTML razonable" do
-                    #     r = %r{
-                    #     (<input\s+
-                    #     type="radio"\s+
-                    #     value="\d+"\s+
-                    #     .*
-                    #     name="\d+">\s+\d+\s+
-                    #     ){4}
-                    #     }x                     
-                    #     expect(@p1.to_html).to  match(r)
-                    # end
-                end    
+               
                 
                 
                 
