@@ -8,7 +8,7 @@ module Examen
            before :each do 
             
             
-            @p=EleccionSimple.new({:enunciado => "¿Esto es una pregunta?", :respuesta => 'si', :falsas => ['No',0,'Tal vez']})
+            @p=EleccionSimple.new({:enunciado => "¿Esto es una pregunta?", :respuesta => "si", :falsas => ["No",0,"Tal vez"]})
             
            end
            
@@ -16,7 +16,7 @@ module Examen
               
            
                 it "Debe existir una pregunta " do
-                    expect(@p.enunciado).to eq('¿Esto es una pregunta?')
+                    expect(@p.enunciado).to eq("¿Esto es una pregunta?")
                     expect(@p.respuesta)=='si'
                     expect(@p.falsas)==['No',0,'Tal vez']
                     
@@ -45,7 +45,7 @@ module Examen
                 
           it "Prueba de preguntas" do
               #creo las preguntas
-              @p1=EleccionSimple.new(:enunciado => "¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
+              @p1=EleccionSimple.new(:enunciado =>"¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ["#<Xyz:0xa000208>",0,"Ninguna de las anteriores"])
               @p2=EleccionSimple.new(:enunciado =>"¿La siguiente definicion de un hash en ruby es valida?",:respuesta => "verdadero" ,:falsas => "falso")
               @p3=EleccionSimple.new(:enunciado =>"¿Cual es la siguiente salida del codigo en ruby?",:respuesta =>1,:falsas => ["bob","HEY","Ninguna"])
               @p4=EleccionSimple.new(:enunciado =>"¿Cual es el tipo de objeto en el siguiente codigo en ruby?",:respuesta => "una instancia de la clase Class",:falsas => ["una constante","un objeto","Ninguna"])
@@ -88,12 +88,12 @@ module Examen
                     @n2 = Nodo.new("Nodo 2")
                 end
                 
-                it 'Se deben insertar nodos en la lista.' do
+                it "Se deben insertar nodos en la lista." do
                     @lista.push(@n1)
                     expect(@lista.inicio).to eq(@n1)
                 end
                 
-                it 'Se insertan varios elementos.' do
+                it "Se insertan varios elementos." do
                     @lista.push(@n1)
                     @lista.push(@n2)
                     expect(@lista.inicio).to eq(@n2)
@@ -101,7 +101,7 @@ module Examen
                     expect(@lista.inicio).to eq(@n1)
                 end
                 
-                it 'Se extrae el primer elemento de la lista.' do
+                it "Se extrae el primer elemento de la lista." do
                     @lista.push(@n1)
                     @lista.push(@n2)
                     @lista.ext
@@ -114,7 +114,7 @@ module Examen
          describe Examen do
                 before :all do
                     @examen = Lista.new(0)
-                    @p1=EleccionSimple.new(:enunciado => "¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
+                    @p1=EleccionSimple.new(:enunciado => "¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ["#<Xyz:0xa000208>",0,"Ninguna de las anteriores"])
                     @p2=EleccionSimple.new(:enunciado =>"¿La siguiente definicion de un hash en ruby es valida?",:respuesta => "verdadero" ,:falsas => "falso")
                     @p3=EleccionSimple.new(:enunciado =>"¿Cual es la siguiente salida del codigo en ruby?",:respuesta =>1,:falsas => ["bob","HEY","Ninguna"])
                     @p4=EleccionSimple.new(:enunciado =>"¿Cual es el tipo de objeto en el siguiente codigo en ruby?",:respuesta => "una instancia de la clase Class",:falsas => ["una constante","un objeto","Ninguna"])
@@ -122,13 +122,13 @@ module Examen
               
                 end
                 
-                it 'Se deben insertar una pregunta en el examen.' do
+                it "Se deben insertar una pregunta en el examen." do
                     @nodo1=Nodo.new(@p1)
                     @examen.push(@nodo1)
                     expect(@examen.inicio).to eq(@nodo1)
                 end
                 
-                it 'Se insertan varios elementos.' do
+                it "Se insertan varios elementos." do
                     @nodo1=Nodo.new(@p1)
                     @nodo2=Nodo.new(@p2)
                     @nodo3=Nodo.new(@p3)
@@ -150,7 +150,7 @@ module Examen
                     expect(@examen.inicio).to eq(@nodo1)
                 end
                 
-                it 'Se extrae el primer elemento del examen.' do
+                it "Se extrae el primer elemento del examen." do
                     @nodo1=Nodo.new(@p1)
                     @nodo2=Nodo.new(@p2)
                     @nodo3=Nodo.new(@p3)
@@ -175,7 +175,7 @@ module Examen
                
                 describe Examen do
                     before :each do
-                    @p=Verdaderofalso.new(:enunciado => '¿Pregunta de falso y verdadero?',:respuesta => 'verdadero', :falsas => 'falso')
+                    @p=Verdaderofalso.new(:enunciado => "¿Pregunta de falso y verdadero?",:respuesta => "verdadero", :falsas => "falso")
                     end
                     
                     it "Debe heredar de EleccionSimple" do
@@ -187,13 +187,13 @@ module Examen
                     #----------------------------------------------------------
                         expect(@p).instance_of?(Verdaderofalso)
                         expect(@p).is_a?(EleccionSimple)
-                        expect(@p.enunciado).to eq('¿Pregunta de falso y verdadero?')
+                        expect(@p.enunciado).to eq("¿Pregunta de falso y verdadero?")
                     end
 
                     it "Debe existir una pregunta de verdadero y falso" do
                     #debe evaluar de que tenga dos elementos, falso y verdadero
-			        expect(@p.respuesta)=='verdadero'
-                        expect(@p.falsas)=='falso'
+			        expect(@p.respuesta)=="verdadero"
+                        expect(@p.falsas)=="falso"
 		            end
 		            
 		            
@@ -204,7 +204,7 @@ module Examen
                 describe Examen do
                     before :all do
                             @examen = Lista.new(0)
-                            @p1=EleccionSimple.new(:enunciado => "¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
+                            @p1=EleccionSimple.new(:enunciado => "¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ["#<Xyz:0xa000208>",0,"Ninguna de las anteriores"])
                             @p2=EleccionSimple.new(:enunciado =>"¿La siguiente definicion de un hash en ruby es valida?",:respuesta => "verdadero" ,:falsas => "falso")
                             @p3=EleccionSimple.new(:enunciado =>"¿Cual es la siguiente salida del codigo en ruby?",:respuesta =>1,:falsas => ["bob","HEY","Ninguna"])
                             @p4=EleccionSimple.new(:enunciado =>"¿Cual es el tipo de objeto en el siguiente codigo en ruby?",:respuesta => "una instancia de la clase Class",:falsas => ["una constante","un objeto","Ninguna"])
@@ -280,7 +280,7 @@ module Examen
                  describe Examen do
                      before :all do
                             @examen = Lista.new(0)
-                            @p1=EleccionSimple.new(:valor => "5",:enunciado => "¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
+                            @p1=EleccionSimple.new(:valor => "5",:enunciado => "¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ["#<Xyz:0xa000208>",0,"Ninguna de las anteriores"])
                             @p2=EleccionSimple.new(:valor => "2",:enunciado =>"¿La siguiente definicion de un hash en ruby es valida?",:respuesta => "verdadero" ,:falsas => "falso")
                             @p3=EleccionSimple.new(:valor => "3",:enunciado =>"¿Cual es la siguiente salida del codigo en ruby?",:respuesta =>1,:falsas => ["bob","HEY","Ninguna"])
                             @p4=EleccionSimple.new(:valor => "5",:enunciado =>"¿Cual es el tipo de objeto en el siguiente codigo en ruby?",:respuesta => "una instancia de la clase Class",:falsas => ["una constante","un objeto","Ninguna"])
@@ -400,9 +400,9 @@ module Examen
                         
                         before :each do
                             @examen = Lista.new(0)
-                            @p1=EleccionSimple.new(:valor => "5",:enunciado => "Pregunta A",:respuesta =>"NN",:falsas => ['false',0,'Ninguna de las anteriores'])
+                            @p1=EleccionSimple.new(:valor => "5",:enunciado =>"Pregunta A",:respuesta =>"NN",:falsas => ["false",0,"Ninguna de las anteriores"])
                             @p2=Verdaderofalso.new(:valor => "2",:enunciado =>"¿2+2=5?",:respuesta => "falso" ,:falsas => "verdadero")
-                            @p3=EleccionSimple.new(:valor => "3",:enunciado =>"¿Ruby es un lenguaje orientado a ________ ?",:respuesta =>'objetos',:falsas => ["dinamico","programacion","agilidad"])
+                            @p3=EleccionSimple.new(:valor => "3",:enunciado =>"¿Ruby es un lenguaje orientado a ________ ?",:respuesta =>"objetos",:falsas => ["dinamico","programacion","agilidad"])
                             
                             
                             @nodo1=Nodo.new(@p1)
@@ -433,10 +433,6 @@ module Examen
                         
                         end
                         
-                        it "Pertenece a la clase lista_enlazada " do
-	                        expect(@exam.class.ancestors) == Lista
-	                    end
-                        
                         
                     
                     end
@@ -449,7 +445,7 @@ module Examen
                          
                         before :each do
                             @examen = Lista.new(0)
-                            @p1=EleccionSimple.new(:valor => "5",:enunciado => "¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ['#<Xyz:0xa000208>',0,'Ninguna de las anteriores'])
+                            @p1=EleccionSimple.new(:valor => "5",:enunciado =>"¿Cual es la salida del siguiente codigo Ruby? class Xyz def pots @nice end end xyz = Xyz.new p xyz.pots",:respuesta =>"nil",:falsas => ["#<Xyz:0xa000208>",0,"Ninguna de las anteriores"])
                             @p2=EleccionSimple.new(:valor => "2",:enunciado =>"¿La siguiente definicion de un hash en ruby es valida?",:respuesta => "verdadero" ,:falsas => "falso")
                             @p3=EleccionSimple.new(:valor => "3",:enunciado =>"¿Cual es la siguiente salida del codigo en ruby?",:respuesta =>1,:falsas => ["bob","HEY","Ninguna"])
                             @p4=EleccionSimple.new(:valor => "5",:enunciado =>"¿Cual es el tipo de objeto en el siguiente codigo en ruby?",:respuesta => "una instancia de la clase Class",:falsas => ["una constante","un objeto","Ninguna"])
@@ -483,10 +479,6 @@ module Examen
                             arrayRespuestas = ["@rc1","@rf2","@rc3","@rf4","@f5"]
                             expect(@interfaz.compresp(arrayRespuestas)).to eq("Ha suspendido el examen: 2/5")
                         end
-                     
-                        it "Interfaz Pertenece a la clase lista_enlazada " do
-	                        expect(@interfaz.class.ancestors) == Lista
-	                    end
                         
                     end    
                     
