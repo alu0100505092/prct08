@@ -1,4 +1,4 @@
-require "examen/version"
+require 'examen/version'
 require 'examen/pregunta'
 require 'examen/lista'
 require 'examen/verdaderofalso'
