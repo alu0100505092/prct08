@@ -34,6 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "mime-types", '~> 1.16'
   spec.add_development_dependency "celluloid", '0.16.0'
   spec.add_development_dependency "rest-client", '~> 1.7.2'
+  spec.add_development_dependency "listen"
 
 
 end
