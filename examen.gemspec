@@ -31,5 +31,7 @@ Gem::Specification.new do |spec|
 + # mime-types 2.0 removes support for ruby 1.8.7 (gemspec requires ruby
 + # 1.9.2+), so we have to add an additional pin. 1.16 is chosen just becuase
 + # it's the version I had when I tested.
-+ spec.add_development_dependency "mime-types", "~> 1.16"
++ s.add_dependency "mime-types", '~> 1.16'
+
+
 end
