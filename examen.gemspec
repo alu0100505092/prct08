@@ -32,6 +32,8 @@ Gem::Specification.new do |spec|
   # 1.9.2+), so we have to add an additional pin. 1.16 is chosen just becuase
   # it's the version I had when I tested.
   spec.add_dependency "mime-types", '~> 1.16'
+  spec.add_development_dependency "celluloid"
+  spec.add_development_dependency "rest-client"
 
 
 end
