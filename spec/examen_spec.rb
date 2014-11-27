@@ -433,7 +433,7 @@ module Examen
                             
                             arrayRespuestasCorrectas = ["@rc1","@rc2","@rc3","@rc4","@rc5"]
                            
-                            @exam=Exam.new(@examen,arrayRespuestasCorrectas)
+                            @exam=Exam.new(:preguntas => @examen, :respuescorrectas => arrayRespuestasCorrectas)
                             
                            
                           
@@ -447,7 +447,9 @@ module Examen
                             expect(@exam.insertQuestion(@p1)).to eq(@p1)
                         end
                         
-                        it "Debe tener una lista de respuestas correctas"
+                        it "Debe tener una lista de respuestas correctas" do 
+                            expect(@exam.respu).to eq(["@rc1","@rc2","@rc3","@rc4","@rc5"])
+                        end     
                         
                         
                         
@@ -480,6 +482,8 @@ module Examen
                             @p4=EleccionSimple.new(:valor => "5",:enunciado =>"¿Cual es el tipo de objeto en el siguiente codigo en ruby?",:respuesta => "una instancia de la clase Class",:falsas => ["una constante","un objeto","Ninguna"])
                             @p5=EleccionSimple.new(:valor => "1",:enunciado =>"¿Es apropiado que una clase tablero herede de una clase juego?",:respuesta =>"verdadero" , :falsas =>"falso")
                             
+                            @arrayPreguntas=[@p1,@p2,@p3,@p4,@p5]
+                            @arrayinvertido=[@p5,@p4,@p3,@p2,@p1]
                             @nodo1=Nodo.new(@p1)
                             @nodo2=Nodo.new(@p2)
                   	        @nodo3=Nodo.new(@p3)
@@ -503,20 +507,27 @@ module Examen
                             
                             arrayRespuestasCorrectas = ["@rc1","@rc2","@rc3","@rc4","@rc5"]
                             
-                            @exam=Exam.new(@examen,arrayRespuestasCorrectas)
+                            @exam=Exam.new(:preguntas => @examen, :respuescorrectas => arrayRespuestasCorrectas)
                             
                             
                             
                             
                              
-                            @interfaz=Interfaz.new(@examen)
+                            @interfaz=Interfaz.new(:examen => @examen)
                            
                           
                         end
                         
-                        it "Debe tener un examen"
+                        it "Debe tener un examen" do
+                          expect(@interfaz).instance_of?(Interfaz)
+                          expect(@exam.class).to eq(Exam)
+                          
+                        end
                         
-                        it "Debe de mostrar el examen al usuario"
+                        it "Debe de mostrar el examen al usuario" do
+                            expect(@interfaz.to_s).to eq(@p1.to_s+"\n"+@p2.to_s+"\n"+@p3.to_s+"\n"+@p4.to_s+"\n"+@p5.to_s+"\n")
+                    
+                        end
                         
                         it "Se deben mostrar ordenadas las preguntas" do
                         
@@ -524,21 +535,22 @@ module Examen
                         
                         end
                         
+                        it "Se deben mostrar en orden inverso las preguntas" do
+                        
+                         expect(@interfaz.invertir).to eq(@p5.to_s+"\n"+@p4.to_s+"\n"+@p3.to_s+"\n"+@p2.to_s+"\n"+@p1.to_s+"\n")
+                        
+                        end
+                        
+                        it " Metodo para invertir las preguntas del examen prog funcional" do
+                            expect(@interfaz.invertirfuncional(@arrayPreguntas)).to eq(@arrayinvertido)
+                            
+                        end
+                        
                     end    
                     
                 end
-                     
-                    
-                        
-                        
      end 
-               
-                
-                
-                
 end    
-       
-       
 
  
  

@@ -1,10 +1,10 @@
 require "examen/lista"
 module Examen
-    class Exam
-        attr_reader :preguntas
-        def initialize (listaPreguntas,respu)
-            @preguntas = listaPreguntas 
-            @respuescorrectas=respu
+    class Exam 
+        attr_reader :preguntas, :respuescorrectas
+        def initialize (args)
+            @preguntas = args[:preguntas] 
+            @respuescorrectas=args[:respuescorrectas]
         end
      
         def insertQuestion(question)
@@ -51,18 +51,8 @@ module Examen
         
         
         def respu       
-            @respuestascorrectas
+            @respuescorrectas
         end
-        
-            
-     
-        # def to_ss 
-        #     cadena =""
-        #     for i in @preguntas do
-        #         cadena +=i.to_s
-        #     end
-        #     cadena
-        # end
         
         
     end    
