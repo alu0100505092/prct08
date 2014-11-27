@@ -6,8 +6,9 @@
 Practica 10 LPP
 
 Integrantes LPP_T_13
-    Angelica Ravelo
-    Joaquin Escobar
+   Joaquin Escobar 
+    Angelica Ravelo 
+    
 
 
 Contiene la practica 9 y 10 (y anteriores)
