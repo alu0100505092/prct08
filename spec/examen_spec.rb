@@ -430,7 +430,10 @@ module Examen
                             @rf2="falso"
                             @rf3="HEY"
                             @rf4="Ninguna"
+                            @rf5='falso'
                             
+                            @arrayPreguntas=[@p1,@p2,@p3,@p4,@p5]
+                            @arrayinvertido=[@p5,@p4,@p3,@p2,@p1]
                             arrayRespuestasCorrectas = ["@rc1","@rc2","@rc3","@rc4","@rc5"]
                            
                             @exam=Exam.new(:preguntas => @examen, :respuescorrectas => arrayRespuestasCorrectas)
@@ -459,10 +462,31 @@ module Examen
                             expect(@exam.compresp(arrayRespuestasUsuario)).to eq("Su nota es: Sobresaliente 10")
       
                         end
+                        
+                        it "Se evalua si el examen esta aprobado" do
+                            arrayRespuestasUsuario = ["@rc1","@rc2","@rf3","@rc4","@rc5"]
+                            expect(@exam.compresp(arrayRespuestasUsuario)).to eq("Ha aprobado el examen: 4/5") 
+                        end    
                          
                         it "#Se evalua si el examen esta suspenso" do
-                            arrayRespuestasUsuario = ["@rc1","@rf2","@rc3","@rf4","@f5"]
+                            arrayRespuestasUsuario = ["@rc1","@rf2","@rc3","@rf4","@rf5"]
                             expect(@exam.compresp(arrayRespuestasUsuario)).to eq("Ha suspendido el examen: 2/5")
+                        end
+                        
+                        it "Se deben mostrar en orden inverso las preguntas" do
+                        
+                         expect(@exam.invertir).to eq(@p5.to_s+"\n"+@p4.to_s+"\n"+@p3.to_s+"\n"+@p2.to_s+"\n"+@p1.to_s+"\n")
+                        
+                        end
+                        
+                        it " Metodo para invertir las preguntas del examen prog funcional" do
+                            expect(@exam.invertirfuncional(@arrayPreguntas)).to eq(@arrayinvertido)
+                            
+                        end
+                        
+                         it " Metodo para invertir lambda" do
+                            expect(@exam.invertirlambda(@arrayPreguntas)).to eq(@arrayinvertido)
+                            
                         end
                         
                     
@@ -482,8 +506,7 @@ module Examen
                             @p4=EleccionSimple.new(:valor => "5",:enunciado =>"¿Cual es el tipo de objeto en el siguiente codigo en ruby?",:respuesta => "una instancia de la clase Class",:falsas => ["una constante","un objeto","Ninguna"])
                             @p5=EleccionSimple.new(:valor => "1",:enunciado =>"¿Es apropiado que una clase tablero herede de una clase juego?",:respuesta =>"verdadero" , :falsas =>"falso")
                             
-                            @arrayPreguntas=[@p1,@p2,@p3,@p4,@p5]
-                            @arrayinvertido=[@p5,@p4,@p3,@p2,@p1]
+                            
                             @nodo1=Nodo.new(@p1)
                             @nodo2=Nodo.new(@p2)
                   	        @nodo3=Nodo.new(@p3)
@@ -535,21 +558,7 @@ module Examen
                         
                         end
                         
-                        it "Se deben mostrar en orden inverso las preguntas" do
                         
-                         expect(@interfaz.invertir).to eq(@p5.to_s+"\n"+@p4.to_s+"\n"+@p3.to_s+"\n"+@p2.to_s+"\n"+@p1.to_s+"\n")
-                        
-                        end
-                        
-                        it " Metodo para invertir las preguntas del examen prog funcional" do
-                            expect(@interfaz.invertirfuncional(@arrayPreguntas)).to eq(@arrayinvertido)
-                            
-                        end
-                        
-                         it " Metodo para invertir lambda" do
-                            expect(@interfaz.invertirlambda(@arrayPreguntas)).to eq(@arrayinvertido)
-                            
-                        end
                         
                     end    
                     
