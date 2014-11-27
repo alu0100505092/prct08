@@ -1,3 +1,5 @@
+#===Class Verdaderofalso
+#*Metodo initialize
 module Examen
         class Verdaderofalso < Pregunta
             

@@ -546,6 +546,11 @@ module Examen
                             
                         end
                         
+                         it " Metodo para invertir lambda" do
+                            expect(@interfaz.invertirlambda(@arrayPreguntas)).to eq(@arrayinvertido)
+                            
+                        end
+                        
                     end    
                     
                 end

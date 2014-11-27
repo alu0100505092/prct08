@@ -1,3 +1,9 @@
+#===Class Pregunta
+#*Metodo initialize
+#*Metodo extresp
+#*Metodo to_s
+#*Metodo preg
+#*Metodo <=> 
 require 'pry'
 module Examen
 

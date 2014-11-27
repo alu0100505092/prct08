@@ -1,3 +1,6 @@
+#===Class EleccionSimple
+#*Metodo initialize
+
 module Examen
         class EleccionSimple < Pregunta
             

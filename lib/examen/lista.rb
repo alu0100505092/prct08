@@ -1,3 +1,14 @@
+#===Class Lista
+#*Metodo initialize
+#*Metodo push
+#*Metodo pushf
+#*Metodo pop
+#*Metodo ext
+#*Metodo extfin
+#*Metodo inicio
+#*Metodo fin
+#*Metodo respuesta
+#*Metodo each
 include Enumerable
 Nodo =Struct.new(:value, :next, :prev)
 class Lista

@@ -1,3 +1,11 @@
+#===Class Examen
+#*Metodo initialize
+#*Metodo insertQuestion
+#*Metodo insertQuestion2
+#*Metodo compresp
+#*Metodo preguntas
+#*Metodo respu
+
 require "examen/lista"
 module Examen
     class Exam 

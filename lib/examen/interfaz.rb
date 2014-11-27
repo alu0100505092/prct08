@@ -1,3 +1,10 @@
+#===Class Interfaz
+#*Metodo initialize
+#*Metodo to_s
+#*Metodo invertir
+#*Metodo invertirfuncional
+#*Metodo invertirlambda
+
 require 'examen/exam'
 require 'examen/lista'
 module Examen
@@ -48,6 +55,19 @@ module Examen
 	       end
 	       arr2
 	    end
+        
+        #http://stackoverflow.com/questions/13769378/storing-methods-in-a-lambda-and-sending-to-an-object
+        def invertirlambda(lista)
+            arr2=Array.new
+            arr2.push(lista)
+            invertir = lambda { reverse } #es igual decir lambda ->
+            arr2=lista.instance_exec(&invertir)
+            
+            return arr2
+            
+                
+        end
+        
         
     end    
     
