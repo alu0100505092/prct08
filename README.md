@@ -6,7 +6,8 @@
 Practica 10 LPP
 
 Integrantes LPP_T_13
-   Joaquin Escobar 
+    Joaquin Escobar 
+    
     Angelica Ravelo 
     
 
