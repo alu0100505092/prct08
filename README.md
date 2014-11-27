@@ -1,20 +1,18 @@
-Practica 6 LPP
+[![Build Status](https://travis-ci.org/alu0100505092/prct08.svg?branch=des)](https://travis-ci.org/alu0100505092/prct08)
+[![Coverage Status](https://img.shields.io/coveralls/alu0100505092/prct08.svg)](https://coveralls.io/r/alu0100505092/prct08)
+[![Coverage Status](https://coveralls.io/repos/alu0100505092/prct08/badge.png)](https://coveralls.io/r/alu0100505092/prct08)
+https://travis-ci.org/alu0100505092/prct08.svg?branch=des
+https://travis-ci.org/alu0100505092/prct08.svg?branch=master
+
+Practica 9 LPP
 
 Integrantes LPP_T_13
     Angelica Ravelo
     Joaquin Escobar
 
 
-Practica sobre Listas Enlazadas en RUBY( Linked List)
+Practica sobre Clase Examen, y creacion clase Interfaz, en la clase Interfaz se comprueban las respuestas ingresadas por el usuario
+, con sus expectativas.
 
-Expectativas
 
-Examen
-  Nodo
-    -Debe existir un Nodo de la lista con sus datos y su siguiente
-    
-  Lista
-    -Se extrae el primer elemento de la lista
-    -Se puede insertar un elemento
-    -Se pueden insertar varios elementos
-    -Debe existir una Lista con su cabeza 
+
