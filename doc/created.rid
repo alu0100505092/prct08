@@ -1,0 +1,19 @@
+Thu, 27 Nov 2014 13:41:21 +0000
+./Gemfile	Thu, 27 Nov 2014 12:27:44 +0000
+./LICENSE.txt	Tue, 28 Oct 2014 14:58:51 +0000
+./spec/spec_helper.rb	Thu, 27 Nov 2014 12:27:44 +0000
+./spec/examen_spec.rb	Thu, 27 Nov 2014 13:39:40 +0000
+./Gemfile.lock	Thu, 27 Nov 2014 12:27:46 +0000
+./Guardfile	Thu, 27 Nov 2014 12:28:52 +0000
+./Rakefile	Tue, 28 Oct 2014 15:22:12 +0000
+./examen.gemspec	Thu, 27 Nov 2014 12:27:44 +0000
+./lib/examen.rb	Thu, 27 Nov 2014 12:27:44 +0000
+./lib/examen/exam.rb	Thu, 27 Nov 2014 13:39:57 +0000
+./lib/examen/eleccionsimple.rb	Thu, 27 Nov 2014 13:39:45 +0000
+./lib/examen/examen.rb	Thu, 27 Nov 2014 12:27:44 +0000
+./lib/examen/pregunta.rb	Thu, 27 Nov 2014 13:40:21 +0000
+./lib/examen/version.rb	Tue, 28 Oct 2014 14:58:52 +0000
+./lib/examen/lista.rb	Thu, 27 Nov 2014 13:39:47 +0000
+./lib/examen/verdaderofalso.rb	Thu, 27 Nov 2014 13:38:52 +0000
+./lib/examen/interfaz.rb	Thu, 27 Nov 2014 13:39:41 +0000
+./README.md	Thu, 27 Nov 2014 12:27:44 +0000
