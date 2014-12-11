@@ -16,8 +16,9 @@ module Examen
         #----------------------------------------------------------
         #----------------------------------------------------------
         
-        attr_reader :valor, :enunciado, :respuesta,:falsas
+        attr_accessor :valor, :enunciado, :respuesta,:falsas
         include Comparable
+        
         def initialize(arg)
             @valor=arg[:valor]
             @enunciado=arg[:enunciado]

@@ -1,4 +1,6 @@
 require 'examen/pregunta'
+require 'examen/lista'
+require 'examen/exam'
 module Examen
     class Quiz2 
         
@@ -23,27 +25,30 @@ module Examen
             
             
         def to_s
-            @examen.to_s
+            @examen.to_ss
         end
         
         
         
-      def pregunta(pre, respuestas)
+      def pregunta1(pre, respuestas={})
           
-          pregu = Pregunta.new(:valor => "0",:enunciado => pre, :falsas => [0] , :respuesta => '')
-          
+            pregu = Pregunta.new(:enunciado => pre, :falsas => [0] , :respuesta => '')
+            
             respuestas.each do |key, val|
                 if key=='falsas'
                   pregu.falsas(val)
               else
-                  pregu.respuesta(val)
-                   
+                  pregu.respuesta=val
+                  
               end
                
                 
             end
+            
             @lista.pushf(pregu)
       end
+      
+      
       
       
       

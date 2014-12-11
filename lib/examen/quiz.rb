@@ -70,4 +70,4 @@ quiz = Quiz.new("Cuestionario de LPP 05/12/2014") {
     
 }
 
-puts quiz.to_s
+# puts quiz.to_s

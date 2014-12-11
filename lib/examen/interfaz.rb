@@ -31,6 +31,18 @@ module Examen
             respuesta
 	    end
         
+        def to_ss
+            aux = @examen.inicio
+            respuesta = ""
+            respuesta += aux.to_s
+            respuesta += "\n"
+            while (aux != @examen.fin) do
+                aux = aux.next
+                respuesta += aux.to_s
+                respuesta += "\n"
+            end
+            respuesta
+	    end
         
 	    
 	   
