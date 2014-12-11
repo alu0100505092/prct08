@@ -561,8 +561,61 @@ module Examen
                         
                         
                     end    
+                context "Quiz DSL" do
+                
+                    before :all do
+                         @examen=Lista.new(0)
+                         @p1=EleccionSimple.new(:valor => "5",:enunciado =>"¿Cuantos argumentos de tipo bloque puede recibir un metodo?",:respuesta =>"1",:falsas => ["2", "muchos","los que defina el usuario"])
+                         @p2=Verdaderofalso.new(:valor => "5",:enunciado =>"En Ruby los bloque son objetos que continen codigo",:respuesta =>"Cierto",:falsas => "Falso")    
+                         
+                         @nodo1=Nodo.new(@p1)
+                         @nodo2=Nodo.new(@p2)
+                         
+                         @examen.pushf(@nodo2)
+                         @examen.push(@nodo1)
+                         @exam=Exam.new(:preguntas=>@examen)
+                         
+                         @quiz = Quiz2.new ("Examen"){
+                             
+                             
+                            pregunta '¿Cuantos argumentos de tipo bloque puede recibir un metodo?' ,
+                            :falsas => "muchos",
+                            :falsas => "2",
+                            :falsas => "los que defina el usuario",
+                            :respuesta => "1"
+                            pregunta "En Ruby los bloque son objetos que continen codigo",
+                             :falsas => 'Cierto',
+                             :respuesta => 'Falso'
+                             
+                      
+                        }
                     
-                end
+                    
+                    
+                    end  
+                    
+                    
+                    
+                    it " DSL " do
+                        expect(@exam.to_S).to eq(@quiz.to_s)
+                        
+                    end
+                    
+                
+                    
+                end    
+                    
+        end
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
      end 
 end    
 
